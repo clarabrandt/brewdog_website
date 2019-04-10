@@ -1,5 +1,5 @@
 <template class="menu">
-  <nav class="navbar is-black">
+  <nav class="navbar is-fixed-top is-black">
     <div class="navbar-brand">
       <router-link class="navbar-item" to="/home">
         <img
@@ -20,6 +20,9 @@
       <div class="navbar-start">
         <div class="navbar-item has-dropdown is-hoverable">
           <span class="navbar-link">
+            <router-link to="/home">
+              <div class="menu-title">Home</div>
+            </router-link>
             <router-link to="/beers">
               <div class="menu-title">Beers</div>
             </router-link>
@@ -61,6 +64,7 @@ export default class Menu extends Vue {
   color: white;
   font-weight: 600;
   font-size: 20px;
+  margin-right: 15px;
 }
 .navbar {
   height: 5.5rem;
