@@ -1,42 +1,43 @@
 <template class="menu">
-  <nav class="navbar is-transparent">
+  <nav class="navbar is-black">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io"></a>
+      <router-link class="navbar-item" to="/home">
+        <img
+          src="../assets/brewdog-logo.png"
+          alt="Bulma: a modern CSS framework based on Flexbox"
+          width="35"
+          height="50"
+        >
+      </router-link>
       <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
         <span></span>
         <span></span>
         <span></span>
       </div>
     </div>
+
     <div id="navbarExampleTransparentExample" class="navbar-menu">
       <div class="navbar-start">
-        <div class="dropdown is-active">
-          <div class="dropdown-trigger">
-            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-              <span>Beers</span>
-              <span class="icon is-small">
-                <i class="fas fa-angle-down" aria-hidden="true"></i>
-              </span>
-            </button>
-          </div>
-          <div class="dropdown-menu" id="dropdown-menu" role="menu">
-            <div class="dropdown-content">
-              <div class="dropdown-item">Punk IPA</div>
-              <div class="dropdown-item">Dead Pony Club</div>
-              <div class="dropdown-item is-active">Indie</div>
-              <div class="dropdown-item">Lost Lager</div>
-              <div class="dropdown-item">Clockwork Tangerine</div>
-              <div class="dropdown-item">Jet Black Heart</div>
-              <div class="dropdown-item">Quench Quake</div>
-            </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <span class="navbar-link">
+            <router-link to="/beers">
+              <div class="menu-title">Beers</div>
+            </router-link>
+          </span>
+          <div class="navbar-dropdown is-boxed">
+            <a class="navbar-item">Punk IPA</a>
+            <a class="navbar-item">Dead Pony Club</a>
+            <a class="navbar-item">Indie</a>
+            <a class="navbar-item">Lost Lager</a>
+            <a class="navbar-item">Clockwork Tangerine</a>
+            <a class="navbar-item">Jet Black Heart</a>
+            <a class="navbar-item">Quench Quake</a>
+            <a
+              class="navbar-item"
+              href="https://bulma.io/documentation/components/breadcrumb/"
+            >Components</a>
           </div>
         </div>
-        <span class="navbar-item">
-          <router-link to="/home">Home</router-link>
-        </span>
-        <span class="navbar-item">
-          <router-link to="/beers">Beers</router-link>
-        </span>
       </div>
 
       <div class="navbar-end">
@@ -54,4 +55,18 @@ export default class Menu extends Vue {
   // @Prop() private msg!: string
 }
 </script>
+
+<style>
+.menu-title {
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
+}
+.navbar {
+  height: 5.5rem;
+}
+.navbar-brand {
+  height: 100%;
+}
+</style>
 

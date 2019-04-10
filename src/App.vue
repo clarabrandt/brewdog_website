@@ -1,13 +1,8 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <Menu />
-    </nav>
-    
-  </div>
-
+    <Menu/>
     <router-view/>
-  <Footer />
+    <Footer/>
   </div>
 </template>
 
@@ -15,7 +10,6 @@
 import { Component, Vue } from 'vue-property-decorator'
 import Menu from '@/components/Menu.vue' // @ is an alias to /src
 import Footer from '@/components/Footer.vue' // @ is an alias to /src
-
 
 @Component({
   components: {
