@@ -2,22 +2,27 @@
   <div class='ipa section'>
     <div class='ipa-type columns'>
       <div class='ipa-type-content column'>
-        <img></img>
+        <img
+          src="../assets/storm_ipa.jpg"
+          alt="Brewdog logo"
+          width="150"
+          height="250"
+        >
       </div>
       <div class='ipa-type-content column'>
-        <div>NAME</div>
-        <div>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        <div class='ipa-name has-text-weight-bold'>STORM</div>
+        <div class='ipa-description has-text-justified'>
+          Dark and powerful Islay magic infuses this tropical sensation of an IPA. Using the original Punk IPA as a base, 
+          we boosted the ABV to 8% giving it some extra backbone to stand up to the peated smoke imported directly from Islay.
         </div>
       </div>
-      <div class='ipa-type-content column'>
-        <div>Tagline</div>
-        <div>ABV</div>
-        <div>IBU</div>
-        <div>Malts</div>
-        <div>Hops</div>
-        <div>Food paring</div>
+      <div class='ipa-type-content characteristics column has-text-left'>
+        <div class='ipa-characteristic top'>Tagline: Islay Whisky Aged IPA</div>
+        <div class='ipa-characteristic'>ABV: 8.0%</div>
+        <div class='ipa-characteristic'>IBU: 60.0</div>
+        <div class='ipa-characteristic'>Malts</div>
+        <div class='ipa-characteristic'>Hops</div>
+        <div class='ipa-characteristic'>Food paring: oysters, hickory smoked ham, rocky road</div>
       </div>
      </div> 
   </div>
@@ -31,3 +36,34 @@ export default class IPA extends Vue {
   @Prop() private msg!: string
 }
 </script>
+<style>
+.ipa-type {
+  background-color: #454140;
+  /* margin: 0 10px */
+}
+.ipa-type-content {
+  height: 100%;
+}
+.ipa-name {
+  margin-top: 50px;
+  font-size: 30px;
+  color: #B26624
+}
+.ipa-description {
+  color: black;
+  margin: 40px;
+  font-size: 20px;
+}
+.ipa-characteristic {
+  color: #B26624;
+  margin: 10px;
+  font-size: 20px;
+}
+.top {
+  margin-top: 130px
+}
+.characteristics {
+  padding: 10px;
+}
+
+</style>
