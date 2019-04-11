@@ -18,33 +18,34 @@
 
     <div id="navbarExampleTransparentExample" class="navbar-menu">
       <div class="navbar-start">
-        <div class="navbar-item has-dropdown is-hoverable">
-          <span class="navbar-link">
+        <div class="navbar-item is-hoverable">
+          <span class="navbar-link is-arrowless">
             <router-link to="/home">
               <div class="menu-title">Home</div>
             </router-link>
+          </span>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <span class="navbar-link">
             <router-link to="/beers">
               <div class="menu-title">Beers</div>
             </router-link>
           </span>
           <div class="navbar-dropdown is-boxed">
-            <a class="navbar-item">Punk IPA</a>
-            <a class="navbar-item">Dead Pony Club</a>
-            <a class="navbar-item">Indie</a>
-            <a class="navbar-item">Lost Lager</a>
-            <a class="navbar-item">Clockwork Tangerine</a>
-            <a class="navbar-item">Jet Black Heart</a>
-            <a class="navbar-item">Quench Quake</a>
-            <a
-              class="navbar-item"
-              href="https://bulma.io/documentation/components/breadcrumb/"
-            >Components</a>
+            <a class="navbar-item">Blond/Lager/Pilser</a>
+            <a class="navbar-item">IPA</a>
+            <a class="navbar-item">Wheat</a>
+            <a class="navbar-item">Dark/Porter</a>
+            <a class="navbar-item">Scotch Ale</a>
+            <a class="navbar-item">Red Ale</a>
+            <a class="navbar-item">Season</a>
+            <a class="navbar-item">No precise label</a>
           </div>
         </div>
       </div>
 
       <div class="navbar-end">
-        <div class="navbar-item">oi</div>
+        <div class="navbar-item menu-title">Random</div>
       </div>
     </div>
   </nav>
