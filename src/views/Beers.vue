@@ -1,7 +1,7 @@
 <template>
   <div class="beers section">
     <!-- <img alt="Brewdog logo" src="../assets/brewdog-logo.png"> -->
-   <p> Get to know our styles </p>
+   <p> Get to know our styles {{ $route.params.grad }} - {{ $route.params.value }} </p>
     <div class='container is-fluid'>
       <div class='columns'>
         <div class='column'>
@@ -267,3 +267,8 @@ p {
 
 
 </style>
+
+componentDidMount(
+  store.getBeers(); //TUdo
+  store.getBeers(this.props.grad, this.props.value) //SO o que que voce pedir
+)
