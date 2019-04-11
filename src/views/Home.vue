@@ -26,4 +26,7 @@ export default class Home extends Vue {}
 .home {
   height: 100%;
 }
+.more-content{
+  margin-top: 250px;
+}
 </style>
