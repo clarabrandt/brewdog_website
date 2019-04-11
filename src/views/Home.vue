@@ -3,7 +3,7 @@
     <!-- <img alt="Brewdog logo" src="../assets/brewdog-logo.png"> -->
     <Banner msg="The Brewdog Beer World"/>
     <div class="more-content">
-      <Content msg="The best beers in the world"/>
+      <Content />
     </div>
   </div>
 </template>
@@ -27,6 +27,6 @@ export default class Home extends Vue {}
   height: 100%;
 }
 .more-content{
-  margin-top: 250px;
+  margin-top: 200px;
 }
 </style>
