@@ -2,12 +2,7 @@
   <nav class="navbar is-fixed-top is-black">
     <div class="navbar-brand">
       <router-link class="navbar-item" to="/home">
-        <img
-          src="../assets/brewdog-logo.png"
-          alt="Brewdog logo"
-          width="35"
-          height="50"
-        >
+        <img src="../assets/brewdog-logo.png" alt="Brewdog logo" width="35" height="50">
       </router-link>
       <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
         <span></span>
@@ -32,14 +27,28 @@
             </router-link>
           </span>
           <div class="navbar-dropdown is-boxed">
-            <a class="navbar-item">Blond/Lager/Pilser</a>
-            <a class="navbar-item">IPA</a>
-            <a class="navbar-item">Wheat</a>
-            <a class="navbar-item">Dark/Porter</a>
-            <a class="navbar-item">Scotch Ale</a>
-            <a class="navbar-item">Red Ale</a>
-            <a class="navbar-item">Season</a>
-            <a class="navbar-item">No precise label</a>
+            <div class="columns">
+              <div class="column">
+                <div class="navbar-item has-text-weight-bold is-size-5">ABV</div>
+                <hr class="navbar-divider">
+                <a class="navbar-item has-text-weight-bold is-size-6">0 - 3%</a>
+                <a class="navbar-item has-text-weight-bold is-size-6">3.1 - 5.5%</a>
+                <a class="navbar-item has-text-weight-bold is-size-6">5.5 - 8%</a>
+                <a class="navbar-item has-text-weight-bold is-size-6">8 - 12%</a>
+                <a class="navbar-item has-text-weight-bold is-size-6">12 - 15%</a>
+                <a class="navbar-item has-text-weight-bold is-size-6">> 15%</a>
+              </div>
+              <div class="column">
+                <div class="navbar-item has-text-weight-bold is-size-5">IBU</div>
+                <hr class="navbar-divider">
+                <a class="navbar-item has-text-weight-bold is-size-6">0 - 20</a>
+                <a class="navbar-item has-text-weight-bold is-size-6">20 - 40</a>
+                <a class="navbar-item has-text-weight-bold is-size-6">40 - 60</a>
+                <a class="navbar-item has-text-weight-bold is-size-6">60 - 80</a>
+                <a class="navbar-item has-text-weight-bold is-size-6">80 - 100</a>
+                <a class="navbar-item has-text-weight-bold is-size-6">> 100</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
