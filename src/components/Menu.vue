@@ -4,7 +4,7 @@
       <router-link class="navbar-item" to="/home">
         <img
           src="../assets/brewdog-logo.png"
-          alt="Bulma: a modern CSS framework based on Flexbox"
+          alt="Brewdog logo"
           width="35"
           height="50"
         >
