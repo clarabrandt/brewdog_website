@@ -26,6 +26,12 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "beers" */ './views/Beers.vue')
+    },
+    {
+      path: '/beers/:grad/:value',
+      component: () =>
+        import(/* webpackChunkName: "beers" */ './views/Beers.vue'),
+      props: true
     }
   ]
 })
