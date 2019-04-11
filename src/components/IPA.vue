@@ -11,14 +11,15 @@
       </div>
       <div class='ipa-type-content column'>
         <div class='ipa-name has-text-weight-bold'>STORM</div>
+        <div class='ipa-tagline'>Islay Whisky Aged IPA</div>
         <div class='ipa-description has-text-justified'>
           Dark and powerful Islay magic infuses this tropical sensation of an IPA. Using the original Punk IPA as a base, 
           we boosted the ABV to 8% giving it some extra backbone to stand up to the peated smoke imported directly from Islay.
         </div>
       </div>
       <div class='ipa-type-content characteristics column has-text-left'>
-        <div class='ipa-characteristic top'>Tagline: Islay Whisky Aged IPA</div>
-        <div class='ipa-characteristic'>ABV: 8.0%</div>
+        
+        <div class='ipa-characteristic top'>ABV: 8.0%</div>
         <div class='ipa-characteristic'>IBU: 60.0</div>
         <div class='ipa-characteristic'>Malts</div>
         <div class='ipa-characteristic'>Hops</div>
@@ -37,6 +38,9 @@ export default class IPA extends Vue {
 }
 </script>
 <style>
+.ipa {
+  background-color: #B26624
+}
 .ipa-type {
   background-color: #454140;
   /* margin: 0 10px */
@@ -48,6 +52,10 @@ export default class IPA extends Vue {
   margin-top: 50px;
   font-size: 30px;
   color: #B26624
+}
+.ipa-tagline{
+  color: #B26624;
+  font-size: 20px;
 }
 .ipa-description {
   color: black;
