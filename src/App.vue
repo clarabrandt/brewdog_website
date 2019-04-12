@@ -10,6 +10,9 @@
 import { Component, Vue } from 'vue-property-decorator'
 import Menu from '@/components/Menu.vue' // @ is an alias to /src
 import Footer from '@/components/Footer.vue' // @ is an alias to /src
+import { State } from 'vuex-class'
+import { Beer } from './types'
+import BeerList from './components/BeerList.vue'
 
 @Component({
   components: {
@@ -17,7 +20,9 @@ import Footer from '@/components/Footer.vue' // @ is an alias to /src
     Footer
   }
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  @State beerList!: Beer[]
+}
 </script>
 
 
