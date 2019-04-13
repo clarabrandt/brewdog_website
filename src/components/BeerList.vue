@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 // @Component
 // export default class BeerList extends Vue {
@@ -14,7 +14,13 @@ import { mapGetters } from 'vuex'
 // }
 export default {
   name: 'BeerList',
-  computed: mapGetters(['allBeers'])
+  methods: {
+    ...mapActions(['fetchBeers'])
+  },
+  computed: mapGetters(['allBeers']),
+  created() {
+    this.fetchBeers()
+  }
 }
 </script>
 
