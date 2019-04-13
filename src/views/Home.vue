@@ -3,7 +3,8 @@
     <!-- <img alt="Brewdog logo" src="../assets/brewdog-logo.png"> -->
     <Banner msg="The Brewdog Beer World"/>
     <div class="more-content">
-      <Content />
+      <Content/>
+      <BeerList/>
     </div>
   </div>
 </template>
@@ -12,11 +13,13 @@
 import { Component, Vue } from 'vue-property-decorator'
 import Banner from '@/components/Banner.vue' // @ is an alias to /src
 import Content from '@/components/Content.vue' // @ is an alias to /src
+import BeerList from '@/components/BeerList.vue' // @ is an alias to /src
 
 @Component({
   components: {
     Banner,
-    Content
+    Content,
+    BeerList
   }
 })
 export default class Home extends Vue {}
@@ -26,7 +29,7 @@ export default class Home extends Vue {}
 .home {
   height: 100%;
 }
-.more-content{
+.more-content {
   margin-top: 200px;
 }
 </style>
