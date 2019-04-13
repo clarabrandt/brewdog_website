@@ -15,15 +15,17 @@ const getters = {
   allBeers: (state: beerList) => state.beerList
 }
 
-const mutations = {}
-
 const actions = {
   async fetchBeers({ commit }) {
     const response = await fetch('https://api.punkapi.com/v2/beers')
     const data = await response.json()
 
-    console.log(data)
+    commit('setBeers', data)
   }
+}
+
+const mutations = {
+  setBeers: (state: beerList, beerList: Beer[]) => (state.beerList = beerList)
 }
 
 // fetch(url, { method: 'POST',
