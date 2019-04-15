@@ -28,7 +28,7 @@ export default new Router({
         import(/* webpackChunkName: "beers" */ './views/Beers.vue')
     },
     {
-      path: '/beers/:grad/:value',
+      path: '/beers/:grad/:min/:max',
       component: () =>
         import(/* webpackChunkName: "beers" */ './views/Beers.vue'),
       props: true

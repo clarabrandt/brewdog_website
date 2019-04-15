@@ -4,6 +4,8 @@ export interface beerList {
 export interface Beer {
   id: number
   name: string
+  abv: number
+  ibu: number
   food_pairing?: (string)[] | null
 }
 
@@ -15,9 +17,22 @@ const getters = {
   allBeers: (state: beerList) => state.beerList
 }
 
+const getUrl = payload => {
+  const base_url = 'https://api.punkapi.com/v2/beers'
+  let filters = ''
+  if (payload.grad === 'abv') {
+    filters = filters + `abv_gt=${payload.min}&abv_lt=${payload.max}`
+  }
+  if (payload.grad === 'ibu') {
+    filters = filters + `ibu_gt=${payload.min}&ibu_lt=${payload.max}`
+  }
+  return `${base_url}?${filters}`
+}
+
 const actions = {
-  async fetchBeers({ commit }) {
-    const response = await fetch('https://api.punkapi.com/v2/beers')
+  async fetchBeers({ commit }: any, payload: any) {
+    console.log('payload', payload)
+    const response = await fetch(getUrl(payload))
     const data = await response.json()
 
     commit('setBeers', data)
@@ -36,21 +51,3 @@ export default {
   mutations,
   actions
 }
-
-// function postData(url = ``, data = {}) {
-//   // Default options are marked with *
-//     return fetch(url, {
-//         method: "POST", // *GET, POST, PUT, DELETE, etc.
-//         mode: "cors", // no-cors, cors, *same-origin
-//         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-//         credentials: "same-origin", // include, *same-origin, omit
-//         headers: {
-//             "Content-Type": "application/json",
-//             // "Content-Type": "application/x-www-form-urlencoded",
-//         },
-//         redirect: "follow", // manual, *follow, error
-//         referrer: "no-referrer", // no-referrer, *client
-//         body: JSON.stringify(data), // body data type must match "Content-Type" header
-//     })
-//     .then(response => response.json()); // parses JSON response into native Javascript objects
-// }
