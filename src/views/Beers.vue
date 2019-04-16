@@ -1,7 +1,7 @@
 <template>
   <div class="beers section">
     <!-- <img alt="Brewdog logo" src="../assets/brewdog-logo.png"> -->
-    <FilterByIBU/>
+
     <p>Get to know our styles {{ $route.params.grad }} - {{ $route.params.min }} - {{ $route.params.max }}</p>
     <div class="container is-fluid">
       <div class="columns">
@@ -21,12 +21,10 @@
 import { Component, Vue } from 'vue-property-decorator'
 import BeerList from '@/components/BeerList.vue' // @ is an alias to /src
 import BeerABV from '@/components/BeerABV.vue' // @ is an alias to /src
-import FilterByIBU from '@/components/FilterByIBU.vue' // @ is an alias to /src
 
 @Component({
   components: {
-    BeerList,
-    FilterByIBU
+    BeerList
   }
 })
 export default class Beers extends Vue {}
