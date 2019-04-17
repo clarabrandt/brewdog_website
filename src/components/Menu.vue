@@ -31,44 +31,44 @@
               <div class="column">
                 <div class="navbar-item has-text-weight-bold is-size-5">ABV</div>
                 <hr class="navbar-divider">
-                <router-link tag="li" to="/beers/abv/0/3">
+                <router-link to="/beers/abv/0/3">
                   <a class="navbar-item has-text-weight-bold is-size-6" value="0-3">0 - 3%</a>
                 </router-link>
-                <router-link tag="li" to="/beers/abv/3/6">
+                <router-link to="/beers/abv/3/6">
                   <a class="navbar-item has-text-weight-bold is-size-6" value="3-6">3 - 6%</a>
                 </router-link>
-                <router-link tag="li" to="/beers/abv/6/9">
+                <router-link to="/beers/abv/6/9">
                   <a class="navbar-item has-text-weight-bold is-size-6" value="6-10">6 - 9%</a>
                 </router-link>
-                <router-link tag="li" to="/beers/abv/9/15">
+                <router-link to="/beers/abv/9/15">
                   <a class="navbar-item has-text-weight-bold is-size-6" value="9-15">9 - 15%</a>
                 </router-link>
-                <router-link tag="li" to="/beers/abv/15/35">
+                <router-link to="/beers/abv/15/35">
                   <a class="navbar-item has-text-weight-bold is-size-6" value="15-25">15 - 35%</a>
                 </router-link>
-                <router-link tag="li" to="/beers/abv/35/60">
+                <router-link to="/beers/abv/35/60">
                   <a class="navbar-item has-text-weight-bold is-size-6" value="16">> 35%</a>
                 </router-link>
               </div>
               <div class="column">
                 <div class="navbar-item has-text-weight-bold is-size-5">IBU</div>
                 <hr class="navbar-divider">
-                <router-link tag="li" to="/beers/ibu/0/20">
+                <router-link to="/beers/ibu/0/20">
                   <a class="navbar-item has-text-weight-bold is-size-6" value="0-20">0 - 20</a>
                 </router-link>
-                <router-link tag="li" to="/beers/ibu/20/40">
+                <router-link to="/beers/ibu/20/40">
                   <a class="navbar-item has-text-weight-bold is-size-6" value="20">20 - 40</a>
                 </router-link>
-                <router-link tag="li" to="/beers/ibu/40/60">
+                <router-link to="/beers/ibu/40/60">
                   <a class="navbar-item has-text-weight-bold is-size-6" value="40">40 - 60</a>
                 </router-link>
-                <router-link tag="li" to="/beers/ibu/60/80">
+                <router-link to="/beers/ibu/60/80">
                   <a class="navbar-item has-text-weight-bold is-size-6" value="60">60 - 80</a>
                 </router-link>
-                <router-link tag="li" to="/beers/ibu/80/100">
+                <router-link to="/beers/ibu/80/100">
                   <a class="navbar-item has-text-weight-bold is-size-6" value="80">80 - 100</a>
                 </router-link>
-                <router-link tag="li" to="/beers/ibu/100/300">
+                <router-link to="/beers/ibu/100/300">
                   <a class="navbar-item has-text-weight-bold is-size-6" value="100">> 100</a>
                 </router-link>
               </div>
@@ -77,8 +77,12 @@
         </div>
       </div>
 
-      <div class="navbar-end">
-        <div class="navbar-item menu-title">Random</div>
+      <div class="navbar-item is-hoverable">
+        <span class="navbar-link is-arrowless">
+          <router-link to="/home">
+            <div class="menu-title">Random</div>
+          </router-link>
+        </span>
       </div>
     </div>
   </nav>
