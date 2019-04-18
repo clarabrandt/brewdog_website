@@ -32,15 +32,10 @@ export default class Banner extends Vue {
 }
 .title {
   font-size: 70px;
-
   color: black;
-
   font-weight: 600;
-  /* margin: 0; */
-  /* margin-left: 10px; */
   padding: 10px 10px 10px 10px;
   margin-top: 120px;
-
   line-height: 1.2;
 }
 .subtitle {
