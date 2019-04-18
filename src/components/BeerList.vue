@@ -5,6 +5,7 @@
       :key="beer.id"
       class="eachBeer"
     >{{ beer.name }} {{beer.abv}} {{beer.ibu}}</div>
+    <div v-for="beer in oneBeer" :key="beer.id" class="eachBeer">{{ beer.name }}</div>
   </div>
 </template>
 
@@ -20,10 +21,16 @@ export default {
   name: 'BeerList',
   props: ['grad', 'min', 'max'],
   methods: {
-    ...mapActions(['fetchBeers'])
+    ...mapActions(['fetchBeers', 'fetchRandom'])
   },
-  computed: mapGetters(['allBeers']),
+
+  computed: mapGetters(['allBeers', 'oneBeer']),
+
   created() {
+    this.fetchBeers({ grad: this.grad, min: this.min, max: this.max }),
+      this.fetchRandom()
+  },
+  updated() {
     this.fetchBeers({ grad: this.grad, min: this.min, max: this.max })
   }
 }
