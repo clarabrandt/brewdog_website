@@ -20,7 +20,7 @@ const getters = {
   oneBeer: (state: randomBeer) => state.randomBeer
 }
 
-const getUrl = payload => {
+const getUrl = (payload: any) => {
   const base_url = 'https://api.punkapi.com/v2/beers'
   let filters = ''
   if (payload.grad === 'abv') {
