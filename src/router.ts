@@ -34,6 +34,12 @@ export default new Router({
       props: true
     },
     {
+      path: '/beers/random',
+      component: () =>
+        import(/* webpackChunkName: "beers" */ './views/Beers.vue'),
+      props: true
+    },
+    {
       path: '/beers/:id',
       component: () =>
         import(/* webpackChunkName: "beers" */ './views/OneBeer.vue'),
