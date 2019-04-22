@@ -2,7 +2,7 @@
   <div class="beers section">
     <!-- <img alt="Brewdog logo" src="../assets/brewdog-logo.png"> -->
 
-    <p>Get to know our styles {{ $route.params.grad }} - {{ $route.params.min }} - {{ $route.params.max }}</p>
+    <p>Get to know our styles {{ $route.params.grad }}: {{ $route.params.min }} - {{ $route.params.max }}</p>
     <div class="container is-fluid">
       <div class="columns">
         <div class="column">
@@ -20,7 +20,6 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import BeerList from '@/components/BeerList.vue' // @ is an alias to /src
-import BeerABV from '@/components/BeerABV.vue' // @ is an alias to /src
 
 @Component({
   components: {
@@ -31,7 +30,7 @@ export default class Beers extends Vue {}
 </script>
 
 <style>
-.beers {
+.beers.section {
   height: 100%;
 }
 p {

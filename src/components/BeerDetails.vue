@@ -18,18 +18,18 @@
           we boosted the ABV to 8% giving it some extra backbone to stand up to the peated smoke imported directly from Islay.
         </div>
       </div>
-      <div class="ipa-type-content characteristics column has-text-left">
+      <!-- <div class="ipa-type-content characteristics column has-text-left">
         <div
           v-for="beer in oneBeer"
           :key="beer.id"
           class="ipa-characteristic top"
         >abv: {{ beer.abv }}</div>
         <div v-for="beer in oneBeer" :key="beer.id" class="ipa-characteristic">id: {{ beer.id }}</div>
-        <div v-for="beer in oneBeer" :key="beer.id" class="ipa-characteristic">ibu: {{ beer.ibu }}</div>
+        <div v-for="beer in oneBeer" class="ipa-characteristic">ibu: {{ beer.ibu }}</div>
         <div class="ipa-characteristic">Malts</div>
         <div class="ipa-characteristic">Hops</div>
         <div class="ipa-characteristic">Food paring: oysters, hickory smoked ham, rocky road</div>
-      </div>
+      </div>-->
     </div>
   </div>
 </template>
