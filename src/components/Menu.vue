@@ -27,8 +27,15 @@
           <router-link to="/beers">
             <div @mouseover="toggleDropdown" @mouseout="toggleDropdown">Beers</div>
           </router-link>
-          <div class="menu-item-dropdown" v-show="active">
-            <div>item 1</div>
+          <div
+            class="menu-item-dropdown"
+            v-show="active"
+            @mouseover="toggleDropdown"
+            @mouseout="toggleDropdown"
+          >
+            <div>
+              <router-link to="/beers/abv/0/3">item 1</router-link>
+            </div>
             <div>item 2</div>
           </div>
         </div>
