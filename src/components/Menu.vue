@@ -104,11 +104,5 @@ export default {
   font-size: 20px;
   margin-right: 15px;
 }
-.navbar {
-  height: 5.5rem;
-}
-.navbar-brand {
-  height: 100%;
-}
 </style>
 
