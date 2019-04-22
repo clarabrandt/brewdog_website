@@ -1,6 +1,45 @@
 <template class="menu">
-  <nav class="navbar is-fixed-top is-black">
-    <div class="navbar-brand">
+  <!-- <div class="menu-items">
+    <div class="menu-item">Home</div>
+    <div class="menu-item menu-beers">
+      <a href="#" v-on:click.prevent="showDropDown=!showDropDown">
+      <div>Beers</div>
+      <i :class="{ 'fa-caret-up':showDropDown, 'fa-caret-down': !showDropDown }" class="fa" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div class="menu-item">Random</div>
+  </div>-->
+
+  <div class="navbar">
+    <div class="menu-items">
+      <div class="menu-items--left">
+        <div class="menu-item">
+          <router-link class="navbar-item" to="/home">
+            <img src="../assets/brewdog-logo.png" alt="Brewdog logo" width="50" height="50">
+          </router-link>
+        </div>
+        <div class="menu-item">
+          <router-link to="/home">
+            <div>Home</div>
+          </router-link>
+        </div>
+        <div class="menu-item dropdown">
+          <router-link to="/beers">
+            <div @mouseover="toggleDropdown" @mouseout="toggleDropdown">Beers</div>
+          </router-link>
+          <div class="menu-item-dropdown" v-show="active">
+            <div>item 1</div>
+            <div>item 2</div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-items--right">
+        <div class="menu-item">
+          <div>Random</div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="navbar-brand">
       <router-link class="navbar-item" to="/home">
         <img src="../assets/brewdog-logo.png" alt="Brewdog logo" width="35" height="50">
       </router-link>
@@ -11,7 +50,7 @@
       </div>
     </div>
 
-    <div id="navbarExampleTransparentExample" class="navbar-menu">
+    <div class="navbar-menu">
       <div class="navbar-start">
         <div class="navbar-item is-hoverable">
           <span class="navbar-link is-arrowless">
@@ -76,7 +115,7 @@
           </div>
         </div>
       </div>
-
+      
       <div class="navbar-item is-hoverable">
         <span class="navbar-link is-arrowless">
           <router-link to="/home">
@@ -84,8 +123,8 @@
           </router-link>
         </span>
       </div>
-    </div>
-  </nav>
+    </div>-->
+  </div>
 </template>
 
 <script lang="ts">
@@ -93,16 +132,57 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 import { mapActions } from 'vuex'
 
 export default {
-  name: 'Menu'
+  name: 'Menu',
+  data: function() {
+    return {
+      active: false
+    }
+  },
+  methods: {
+    toggleDropdown: function() {
+      this.active = !this.active
+    }
+  }
 }
 </script>
 
-<style>
+<style lang="scss">
+.navbar {
+  background-color: lightgrey;
+}
+
+.menu-items {
+  display: flex;
+  justify-content: space-between;
+  background-color: lightgrey;
+}
+.menu-items--left,
+.menu-items--right {
+  display: flex;
+  /* flex-direction: column; */
+}
+.menu-item {
+  padding: 10px;
+  font-weight: 600;
+  font-size: 20px;
+  align-self: center;
+  .menu-item-dropdown {
+    position: absolute;
+    background-color: whitesmoke;
+    border: 1px solid black;
+    padding: 16px;
+  }
+}
+
 .menu-title {
   color: white;
   font-weight: 600;
   font-size: 20px;
   margin-right: 15px;
+}
+a {
+  text-decoration: none;
+  color: black;
 }
 </style>
 

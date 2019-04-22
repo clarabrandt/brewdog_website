@@ -1,10 +1,8 @@
 <template>
   <section class="hero">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">The Brewdog Beer World</h1>
-        <h2 class="subtitle">Find out more about your favorite beers!</h2>
-      </div>
+    <div class="container">
+      <h1 class="title">The Brewdog Beer World</h1>
+      <h2 class="subtitle">Find out more about your favorite beers!</h2>
     </div>
   </section>
   <!-- <div class="banner"> -->
