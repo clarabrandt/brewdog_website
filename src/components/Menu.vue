@@ -72,7 +72,9 @@
       </div>
       <div class="menu-items--right">
         <div class="menu-item">
-          <div>Random</div>
+          <router-link class="navbar-item" to="/beers/random">
+            <div @click="reloadPage">Random</div>
+          </router-link>
         </div>
       </div>
     </div>
@@ -93,6 +95,9 @@ export default {
   methods: {
     toggleDropdown: function() {
       this.active = !this.active
+    },
+    reloadPage() {
+      window.location.reload()
     }
   }
 }

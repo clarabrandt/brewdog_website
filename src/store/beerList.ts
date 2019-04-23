@@ -38,7 +38,7 @@ const state = {
 
 const getters = {
   allBeers: (state: IState) => state.beerList,
-  oneBeer: (state: IState) => state.selectedBeer
+  selectedBeer: (state: IState) => state.selectedBeer
 }
 
 const getUrl = (payload: any) => {
@@ -64,13 +64,13 @@ const actions = {
     const response = await fetch('https://api.punkapi.com/v2/beers/random')
     const data = await response.json()
 
-    commit('setBeer', data)
+    commit('setBeer', data[0])
   },
   async fetchBeerById({ commit }: any, id: number) {
     const response = await fetch(`https://api.punkapi.com/v2/beers/${id}`)
     const data = await response.json()
 
-    commit('setBeer', data)
+    commit('setBeer', data[0])
   }
 }
 

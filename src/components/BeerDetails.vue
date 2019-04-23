@@ -1,35 +1,22 @@
-<template class="IPA">
-  <!-- <div v-for="beer in oneBeer" :key="beer.id" class="eachBeer">{{ beer.name }}</div> -->
-
-  <div class="ipa section">
-    <div class="ipa-type columns">
-      <!-- <div class="ipa-type-content column">
-        <img src="../assets/storm_ipa.jpg" alt="Brewdog logo" width="150" height="250">
-      </div>-->
-      <div class="ipa-type-content column">
-        <div
-          v-for="beer in oneBeer"
-          :key="beer.id"
-          class="ipa-name has-text-weight-bold"
-        >{{ beer.name }}</div>
-        <div class="ipa-tagline">Islay Whisky Aged IPA</div>
-        <div class="ipa-description has-text-justified">
-          Dark and powerful Islay magic infuses this tropical sensation of an IPA. Using the original Punk IPA as a base,
-          we boosted the ABV to 8% giving it some extra backbone to stand up to the peated smoke imported directly from Islay.
+<template class="beer-details">
+  <div class="selected-beer" v-if="selectedBeer">
+    <div class="selected-beer--name">
+      <div class="beer-name">{{ selectedBeer.name }}</div>
+    </div>
+    <div class="selected-beer--basics">
+      <div class="beer-image">
+        <img :src="selectedBeer.image_url">
+      </div>
+      <div class="beer-basics">
+        <div class="beer-description">{{ selectedBeer.tagline }}</div>
+        <div class="beer-basics--content">
+          <div class="beer-description">{{ selectedBeer.description }}</div>
+          <div class="beer-basics--items">
+            <div class="beer-characteristic top">ABV: {{ selectedBeer.abv }}%</div>
+            <div class="beer-characteristic">IBU: {{ selectedBeer.ibu }}</div>
+          </div>
         </div>
       </div>
-      <!-- <div class="ipa-type-content characteristics column has-text-left">
-        <div
-          v-for="beer in oneBeer"
-          :key="beer.id"
-          class="ipa-characteristic top"
-        >abv: {{ beer.abv }}</div>
-        <div v-for="beer in oneBeer" :key="beer.id" class="ipa-characteristic">id: {{ beer.id }}</div>
-        <div v-for="beer in oneBeer" class="ipa-characteristic">ibu: {{ beer.ibu }}</div>
-        <div class="ipa-characteristic">Malts</div>
-        <div class="ipa-characteristic">Hops</div>
-        <div class="ipa-characteristic">Food paring: oysters, hickory smoked ham, rocky road</div>
-      </div>-->
     </div>
   </div>
 </template>
@@ -40,53 +27,74 @@ import { mapState, mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'BeerDetails',
+  props: ['id'],
 
   methods: {
-    ...mapActions(['fetchRandom'])
+    ...mapActions(['fetchRandom', 'fetchBeerById'])
   },
 
   computed: {
-    ...mapState(['randomBeer']),
-    ...mapGetters(['oneBeer'])
+    ...mapState(['selectedBeer']),
+    ...mapGetters(['selectedBeer'])
   },
   created() {
-    this.fetchRandom()
+    if (this.id === 'random') {
+      console.log(this.fetchRandom())
+    } else {
+      this.fetchBeerById(this.id)
+    }
   }
 }
 </script>
-<style>
-.ipa {
+<style lang="scss">
+.selected-beer {
+  display: flex;
+  flex-direction: column;
+  margin: 0 120px;
+  .selected-beer--basics {
+    display: flex;
+    img {
+      padding: 40px 60px;
+      max-height: 570px;
+      width: 150px;
+    }
+  }
+}
+.beer {
   background-color: #b26624;
 }
-.ipa-type {
-  background-color: #454140;
+.beer-type {
+  background-color: white;
   /* margin: 0 10px */
 }
-.ipa-type-content {
+.beer-type-content {
   height: 100%;
 }
-.ipa-name {
-  margin-top: 50px;
+.beer-name {
+  margin-top: 30px;
+  // padding-left: 150px;
   font-size: 30px;
   color: #b26624;
 }
-.ipa-tagline {
+.beer-tagline {
   color: #b26624;
   font-size: 20px;
 }
-.ipa-description {
+.beer-description {
   color: black;
-  margin: 40px;
+  text-align: justify;
+  margin: 20px 0 40px 0;
+  padding: 0 150px;
   font-size: 20px;
 }
-.ipa-characteristic {
+.beer-characteristic {
   color: #b26624;
   margin: 10px;
   font-size: 20px;
+  text-align: left;
+  padding: 0 150px;
 }
-.top {
-  margin-top: 130px;
-}
+
 .characteristics {
   padding: 10px;
 }
