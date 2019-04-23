@@ -55,6 +55,8 @@ export default class Home extends Vue {}
 <style>
 .home {
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .ingredient {
@@ -103,28 +105,18 @@ export default class Home extends Vue {}
 
 .cd-fixed-bg.cd-fixed-bg--2 {
   background-image: url('../assets/water.jpg');
-  /* background-size: 50%; */
-  background-position-x: left;
-  /* max-width: 50%; */
-  height: 200px;
 }
 .cd-fixed-bg.cd-fixed-bg--3 {
   background-image: url('../assets/hops2.jpg');
-  /* background-size: 50%; */
   max-width: 100%;
-  background-position-x: right;
 }
 .cd-fixed-bg.cd-fixed-bg--4 {
   background-image: url('../assets/malt.jpg');
-  /* background-size: 50%; */
   max-width: 100%;
-  background-position-x: right;
 }
 .cd-fixed-bg.cd-fixed-bg--5 {
   background-image: url('../assets/beeryeast.jpg');
-  /* background-size: 50%; */
   max-width: 100%;
-  background-position-x: right;
 }
 
 .cd-scrolling-bg {

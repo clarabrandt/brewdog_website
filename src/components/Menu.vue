@@ -100,7 +100,6 @@ export default {
 
 <style lang="scss">
 .navbar {
-  background-color: lightgrey;
   position: fixed;
   top: 0;
   width: 100%;
@@ -109,7 +108,7 @@ export default {
 .menu-items {
   display: flex;
   justify-content: space-between;
-  background-color: lightgrey;
+  background-color: rgb(173, 172, 172);
 }
 .menu-items--left,
 .menu-items--right {

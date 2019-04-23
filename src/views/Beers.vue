@@ -4,17 +4,12 @@
 
     <p>Get to know our styles {{ $route.params.grad }}: {{ $route.params.min }} - {{ $route.params.max }}</p>
     <div class="container is-fluid">
-      <div class="columns">
-        <div class="column">
-          <BeerList
-            v-bind:grad="$route.params.grad"
-            v-bind:min="$route.params.min"
-            v-bind:max="$route.params.max"
-          />
-        </div>
-      </div>
+      <BeerList
+        v-bind:grad="$route.params.grad"
+        v-bind:min="$route.params.min"
+        v-bind:max="$route.params.max"
+      />
     </div>
-    <Footer/>
   </div>
 </template>
 
@@ -25,8 +20,7 @@ import Footer from '@/components/Footer.vue' // @ is an alias to /src
 
 @Component({
   components: {
-    BeerList,
-    Footer
+    BeerList
   }
 })
 export default class Beers extends Vue {}
@@ -35,10 +29,9 @@ export default class Beers extends Vue {}
 <style>
 .beers.section {
   height: 100%;
-  padding-top: 0;
 }
 p {
-  /* margin-top: 50px; */
+  margin-top: 100px;
   font-size: 40px;
   font-weight: 600;
 }
