@@ -1,7 +1,7 @@
 <template class="content">
   <div>
     <p>{{ msg }}</p>
-    <BeerDetails/>
+    <BeerDetails v-bind:id="$route.params.id"/>
   </div>
 </template>
 

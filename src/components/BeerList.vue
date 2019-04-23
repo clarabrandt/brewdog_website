@@ -3,9 +3,9 @@
     <div class>
       <div class="media">
         <div class="media-left">
-          <figure class="image">
-            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-          </figure>
+          <div class="image">
+            <img :src="beer.image_url">
+          </div>
         </div>
         <div class="media-content">
           <p class="title is-4">John Smith</p>
@@ -17,14 +17,13 @@
   <div class="one" v-else>
     <div class="two" v-for="beer in allBeers" :key="beer.id">
       <div class="beer">
-        <div>
-          <figure class="beer-image">
-            <img :src="beer.image_url">
-          </figure>
+        <div class="beer-image">
+          <img :src="beer.image_url">
         </div>
+
         <div class="beer-content">
           <div class="name is-size-6 has-text-weight-bold">{{ beer.name }}</div>
-          <div class="abv">abv: {{ beer.abv }}</div>
+          <div class="abv">abv: {{ beer.abv }}%</div>
           <div class="ibu">ibu: {{ beer.ibu }}</div>
         </div>
       </div>
@@ -53,8 +52,7 @@ export default {
   },
 
   created() {
-    this.fetchBeers({ grad: this.grad, min: this.min, max: this.max }),
-      this.fetchRandom()
+    this.fetchBeers({ grad: this.grad, min: this.min, max: this.max })
   },
   mounted() {
     this.fetchBeers({ grad: this.grad, min: this.min, max: this.max })
@@ -73,7 +71,7 @@ export default {
   min-height: 100vh;
   flex-direction: row;
   height: 100%;
-  width: auto;
+  width: 100%;
   margin: 0;
   padding: 0;
   flex-wrap: wrap;
@@ -91,9 +89,13 @@ export default {
   // max-width: 200px;
   // max-height: auto;
   .beer-image {
-    height: auto;
-    max-width: 40px;
+    height: 20px;
+    max-width: 20px;
     // padding: 0 10px;
+  }
+  img {
+    height: 20px;
+    max-width: 20px;
   }
 }
 .beer-content {

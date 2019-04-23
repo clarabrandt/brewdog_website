@@ -1,23 +1,44 @@
+export interface IState {
+  beerList: beerList
+  selectedBeer: Beer
+}
+
 export interface beerList {
   beerList: Beer[]
 }
+
 export interface Beer {
   id: number
   name: string
+  tagline: string
+  first_brewed: string
+  description: string
+  image_url: string
   abv: number
   ibu: number
-  image_url: string
+  target_fg: number
+  target_og: number
+  ebc: number
+  srm: number
+  ph: number
+  attenuation_level: number
+  volume: object
+  boil_volume: object
+  method: object
+  ingredients: object
   food_pairing?: (string)[] | null
+  brewers_tips: string
+  contributed_by: string
 }
 
 const state = {
   beerList: [],
-  randomBeer: []
+  selectedBeer: {}
 }
 
 const getters = {
-  allBeers: (state: beerList) => state.beerList,
-  oneBeer: (state: randomBeer) => state.randomBeer
+  allBeers: (state: IState) => state.beerList,
+  oneBeer: (state: IState) => state.selectedBeer
 }
 
 const getUrl = (payload: any) => {
@@ -33,7 +54,7 @@ const getUrl = (payload: any) => {
 }
 
 const actions = {
-  async fetchBeers({ commit }: any, payload: any) {
+  async fetchBeers({ commit }: any, payload: object) {
     const response = await fetch(getUrl(payload))
     const data = await response.json()
 
@@ -43,18 +64,21 @@ const actions = {
     const response = await fetch('https://api.punkapi.com/v2/beers/random')
     const data = await response.json()
 
-    commit('randomBeer', data)
-    console.log(data)
+    commit('setBeer', data)
+  },
+  async fetchBeerById({ commit }: any, id: number) {
+    const response = await fetch(`https://api.punkapi.com/v2/beers/${id}`)
+    const data = await response.json()
+
+    commit('setBeer', data)
   }
 }
 
 const mutations = {
-  setBeers: (state: beerList, beerList: Beer[]) => (state.beerList = beerList),
-  randomBeer: (state: randomBeer, randomBeer: Beer[]) =>
-    (state.randomBeer = randomBeer)
+  setBeers: (state: IState, beerList: beerList) => (state.beerList = beerList),
+  setBeer: (state: IState, selectedBeer: Beer) =>
+    (state.selectedBeer = selectedBeer)
 }
-
-// fetch(url, { method: 'POST',
 
 export default {
   state,
