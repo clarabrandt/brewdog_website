@@ -1,30 +1,29 @@
 <template>
-  <div class="beerList" v-if="this.grad">
-    <div class>
-      <div class="media">
-        <div class="media-left">
-          <div class="image">
-            <img :src="beer.image_url">
-          </div>
-        </div>
-        <div class="media-content">
-          <p class="title is-4">John Smith</p>
-          <p class="subtitle is-6">@johnsmith</p>
+  <div class="one" v-if="this.grad">
+    <div class="two" v-for="beer in allBeers" :key="beer.id" @click="goToBeer">
+      <div class="beer-image">
+        <img :src="beer.image_url">
+      </div>
+      <div class="beer">
+        <div class="beer-content">
+          <div class="beer-content--name">{{beer.name}}</div>
+          <div class="beer-content--abv">abv: {{ beer.abv }}%</div>
+          <div class="beer-content--ibu">ibu: {{ beer.ibu }}</div>
         </div>
       </div>
     </div>
   </div>
-  <div class="one" v-else>
-    <div class="two" v-for="beer in allBeers" :key="beer.id">
-      <div class="beer">
-        <div class="beer-image">
-          <img :src="beer.image_url">
-        </div>
 
+  <div class="one" v-else>
+    <div class="two" v-for="beer in allBeers" :key="beer.id" @click="goToBeer">
+      <div class="beer-image">
+        <img :src="beer.image_url">
+      </div>
+      <div class="beer">
         <div class="beer-content">
-          <div class="name is-size-6 has-text-weight-bold">{{ beer.name }}</div>
-          <div class="abv">abv: {{ beer.abv }}%</div>
-          <div class="ibu">ibu: {{ beer.ibu }}</div>
+          <div class="beer-content--name">{{ beer.name }}</div>
+          <div class="beer-content--abv">abv: {{ beer.abv }}%</div>
+          <div class="beer-content--ibu">ibu: {{ beer.ibu }}</div>
         </div>
       </div>
     </div>
@@ -41,21 +40,32 @@ import { mapGetters, mapActions, mapState } from 'vuex'
 // }
 export default {
   name: 'BeerList',
-  props: ['grad', 'min', 'max'],
+  props: ['grad', 'min', 'max', 'id'],
   methods: {
-    ...mapActions(['fetchBeers', 'fetchRandom'])
+    ...mapActions(['fetchBeers']),
+    goToBeer() {}
   },
 
   computed: {
-    ...mapGetters(['allBeers', 'oneBeer'])
+    ...mapGetters(['allBeers'])
     // ...mapState(['allBeers'])
   },
 
   created() {
-    this.fetchBeers({ grad: this.grad, min: this.min, max: this.max })
+    this.fetchBeers({
+      grad: this.grad,
+      min: this.min,
+      max: this.max,
+      id: this.id
+    })
   },
   mounted() {
-    this.fetchBeers({ grad: this.grad, min: this.min, max: this.max })
+    this.fetchBeers({
+      grad: this.grad,
+      min: this.min,
+      max: this.max,
+      id: this.id
+    })
   }
 }
 </script>
@@ -63,49 +73,56 @@ export default {
 <style lang="scss" scoped>
 .beerList {
   display: flex;
-  flex-wrap: wrap;
+
+  .beer-grad {
+    display: flex;
+  }
 }
 .one {
   display: flex;
-  border: 10px solid gold;
+  flex-wrap: wrap;
   min-height: 100vh;
   flex-direction: row;
   height: 100%;
   width: 100%;
-  margin: 0;
-  padding: 0;
-  flex-wrap: wrap;
-}
-.two {
-  // display: inline-block;
-  padding: 25px;
-  width: 200px;
-  height: 200px;
-}
-.beer {
-  display: flex;
-  flex-direction: row;
-  // border: 1px solid black;
-  // max-width: 200px;
-  // max-height: auto;
-  .beer-image {
-    height: 20px;
-    max-width: 20px;
-    // padding: 0 10px;
+  // margin: 0 50px;
+  padding: 0 50px;
+  overflow-x: hidden;
+  .two {
+    border: 1px solid lightgrey;
+    border-radius: 2%;
+    margin: 15px;
+    padding: 25px;
+    width: 200px;
+    height: 250px;
+    .beer {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      // padding-left: 10px;
+    }
   }
+}
+.beer-image {
+  margin: 10px;
+  border-bottom: 1px solid black;
   img {
-    height: 20px;
-    max-width: 20px;
+    padding-bottom: 5px;
+    height: 120px;
+    max-width: 120px;
   }
 }
 .beer-content {
-  padding: 0 0 0 25px;
-  text-align: left;
-  // display: flex;
-  // flex-direction: column;
-  .name {
+  .beer-content--name {
     padding: 5px 0;
+    font-weight: 500;
+    font-size: 18px;
   }
+  // .beer-content--abv,
+  // .beer-content--ibu {
+  //   text-align: left;
+  // }
 }
 </style>
 
