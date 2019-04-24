@@ -17,7 +17,6 @@
             <router-link to="/beers">
               <div @mouseover="toggleDropdown" @mouseout="toggleDropdown">Beers</div>
             </router-link>
-            <div class="arrow"></div>
           </div>
           <div
             class="menu-item-dropdown"
@@ -97,7 +96,7 @@ export default {
       this.active = !this.active
     },
     reloadPage() {
-      window.location.reload()
+      window.location.href = '/beers/random'
     }
   }
 }
@@ -133,11 +132,6 @@ export default {
     border-radius: 2%;
     padding: 16px;
     align-items: left;
-  }
-  .arrow {
-    border-width: 1px 1px 0 0;
-    border-style: solid;
-    border-color: #2c3e50;
   }
 }
 
