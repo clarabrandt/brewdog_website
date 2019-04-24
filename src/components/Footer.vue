@@ -1,15 +1,9 @@
 <template>
   <footer class="footer">
-    <div class="content has-text-centered">
-      <h4>
-        <strong>Bulma</strong> by
-        <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-        is licensed
-        <a
-          href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-        >CC BY NC SA 4.0</a>.
-      </h4>
+    <div class="footer-content">
+      <div>Brewdog Recipes IPA.</div>
+      <div></div>
+      <div>A website by Clara Brandt.</div>
     </div>
   </footer>
 </template>
@@ -26,4 +20,11 @@ export default class Footer extends Vue {
 
 
 <style lang="scss" scoped>
+.footer {
+  background-color: lightgrey;
+  .footer-content {
+    text-align: left;
+    padding: 10px;
+  }
+}
 </style>

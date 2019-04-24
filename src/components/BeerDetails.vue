@@ -91,7 +91,7 @@ export default {
 <style lang="scss">
 .selected-beer {
   display: flex;
-  margin: 0 120px;
+  margin: 50px 120px;
   img {
     padding: 40px 60px;
     max-height: 600px;
