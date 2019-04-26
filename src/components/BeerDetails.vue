@@ -32,28 +32,51 @@
               <div class="beer-characteristic">EBC: {{ selectedBeer.ebc }}</div>
               <div class="beer-characteristic">SRM: {{ selectedBeer.srm }}</div>
               <div class="beer-characteristic">PH: {{ selectedBeer.ph }}</div>
-              <div
-                class="beer-characteristic"
-              >Attenuation level: {{ selectedBeer.attenuation_level }}</div>
+              <div class="beer-characteristic">Attenuation: {{ selectedBeer.attenuation_level }}</div>
             </div>
           </div>
         </div>
         <div class="beer-methods">
           <div class="beer-methods--timing">
             <div class="beer-basics--title">Method/Timing</div>
-            <div class="beer-characteristic">{{ selectedBeer.method }}</div>
+            <div class="beer-characteristic" v-for="(method) in selectedBeer.method">
+              <!-- <div>{{method}}</div> -->
+              <div v-if="typeof(method) === 'object'">
+                <div class="beer-characteristic" v-for="(key) in selectedBeer.method[key]">{{key}}</div>
+                <div class="beer-characteristic" v-for="(amount) in selectedBeer.method[key]">
+                  <div
+                    class="beer-characteristic"
+                    v-for="(step) in selectedBeer.method[key][amount]"
+                  >oi</div>
+                </div>item
+              </div>
+              <div v-else>{{method}}</div>
+            </div>
           </div>
           <div class="beer-methods--fermentation">
             <div class="beer-basics--title">Fermentation</div>
-            <div class="beer-characteristic">{{ selectedBeer.method }}</div>
+            <div class="beer-characteristic" v-for="(method) in selectedBeer.method">{{ method }}</div>
           </div>
         </div>
         <div class="beer-basics--title">Ingredients</div>
-        <div class="beer-ingredients" v-for="(ingredient, key, index) in selectedBeer.ingredients">
-          <div>{{key}}: {{ingredient[index].name}}</div>
-          <!-- <div>{{ingredient[index].amount}}</div> -->
-          <!-- <div>{{ingredient[index].amount}}</div> -->
+        <div class="beer-characteristic" v-for="(ingredient) in selectedBeer.ingredients">
+          <!-- <div>{{key}}</div> -->
+          <div v-if="typeof(ingredient) !== 'string'">
+            <div
+              class="beer-characteristic"
+              v-for="(key) of selectedBeer.ingredients[key]"
+            >{{key.name}}</div>
+            <!-- <div
+              class="beer-characteristic"
+              v-for="(amount) in selectedBeer.ingredients[key]"
+            >{{amount}}</div>-->
+          </div>
+          <div v-else>Yest: {{ingredient}}</div>
         </div>
+
+        <!-- <div class="beer-ingredients" v-for="(ingredient, key, index) in selectedBeer.ingredients">
+          <div>{{key}}: {{ingredient[index].name}}</div>
+        </div>-->
         <div class="beer-basics-food">
           <div class="beer-basics--title">Food paring</div>
           <div v-for="food in selectedBeer.food_pairing" class="beer-characteristic">{{ food }}</div>
@@ -143,11 +166,42 @@ export default {
   margin: 10px 10px 10px 0;
   font-size: 18px;
   text-align: left;
-  padding-right: 20px;
+  padding: 0 20px 15px 0;
   font-weight: 500;
+  border-bottom: 0.5px solid rgb(235, 232, 232);
 }
 
 .characteristics {
   padding: 10px;
+}
+@media only screen and (max-width: 620px) {
+  .selected-beer {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 50px;
+    img {
+      // padding: 40px;
+      max-height: 300px;
+      max-width: 100px;
+    }
+    .selected-beer--basics {
+      padding: 0;
+      .beer-name {
+        padding-top: 15px;
+        text-align: center;
+        font-size: 35px;
+        color: #b26624;
+        font-family: 'Noto Sans JP', sans-serif;
+        text-transform: uppercase;
+      }
+      .beer-characteristic {
+        margin: 10px 10px 0 0;
+        font-size: 16px;
+        text-align: left;
+        padding-right: 10px;
+        font-weight: 500;
+      }
+    }
+  }
 }
 </style>
