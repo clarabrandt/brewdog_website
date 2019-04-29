@@ -26,21 +26,11 @@
           >
             <div class="abv">
               <div class="menu-item-title">ABV</div>
-              <router-link to="/beers/abv/0/3">
-                <a class="navbar-item has-text-weight-bold is-size-6" value="0-3">0 - 3%</a>
-              </router-link>
-              <router-link to="/beers/abv/3/6">
-                <a class="navbar-item has-text-weight-bold is-size-6" value="3-6">3 - 6%</a>
-              </router-link>
-              <router-link to="/beers/abv/6/9">
-                <a class="navbar-item has-text-weight-bold is-size-6" value="6-10">6 - 9%</a>
-              </router-link>
-              <router-link to="/beers/abv/9/15">
-                <a class="navbar-item has-text-weight-bold is-size-6" value="9-15">9 - 15%</a>
-              </router-link>
-              <router-link to="/beers/abv/15/35">
-                <a class="navbar-item has-text-weight-bold is-size-6" value="15-25">15 - 35%</a>
-              </router-link>
+              <router-link to="/beers/abv/0/3">0 - 3%</router-link>
+              <router-link to="/beers/abv/3/6">3 - 6%</router-link>
+              <router-link to="/beers/abv/6/9">6 - 9%</router-link>
+              <router-link to="/beers/abv/9/15">9 - 15%</router-link>
+              <router-link to="/beers/abv/15/35">15 - 35%</router-link>
               <router-link to="/beers/abv/35/60">
                 <a class="navbar-item has-text-weight-bold is-size-6" value="16">> 35%</a>
               </router-link>

@@ -2,12 +2,13 @@
   <div class="beers section">
     <!-- <img alt="Brewdog logo" src="../assets/brewdog-logo.png"> -->
 
-    <p>Get to know our styles {{ $route.params.grad }}: {{ $route.params.min }} - {{ $route.params.max }}</p>
+    <h3>- Choose your favorite beer to see its details {{ $route.params.grad }} {{ $route.params.min }} - {{ $route.params.max }}</h3>
     <div class="container is-fluid">
       <BeerList
         v-bind:grad="$route.params.grad"
         v-bind:min="$route.params.min"
         v-bind:max="$route.params.max"
+        v-bind:id="$route.params.id"
       />
     </div>
   </div>
