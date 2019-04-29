@@ -1,8 +1,8 @@
 <template>
   <section class="hero">
     <div class="container">
-      <h1 class="title">The Brewdog Beer World</h1>
-      <h2 class="subtitle">Find out more about your favorite beers!</h2>
+      <h1 class="title">The Brewdog World</h1>
+      <h2 class="subtitle">Discover the recipes of your favorite beers!</h2>
     </div>
   </section>
   <!-- <div class="banner"> -->
@@ -32,14 +32,15 @@ export default class Banner extends Vue {
   font-size: 70px;
   color: black;
   font-weight: 600;
-  padding: 10px 10px 10px 10px;
+  padding: 10px 10px 0 10px;
   margin-top: 120px;
   line-height: 1.2;
 }
 .subtitle {
-  font-family: cursive, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
-    sans-serif;
-  padding-bottom: 10px;
+  font-family: 'Petit Formal Script', cursive, 'Gill Sans', 'Gill Sans MT',
+    Calibri, 'Trebuchet MS', sans-serif;
+  padding: 0 10px 10px 10px;
+  line-height: 1.5;
 }
 h3 {
   font-size: 12px;
@@ -67,4 +68,69 @@ h3 {
 img {
   opacity: 0.5;
 }
+@media only screen and (max-width: 620px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    background-color: rgb(228, 228, 228);
+    max-width: 75%;
+    /* margin-left: 50px; */
+    max-height: 50%;
+  }
+  .title {
+    font-size: 45px;
+    text-align: center;
+    padding: 10px 10px 0 10px;
+    margin-top: 20px;
+  }
+  .subtitle {
+    margin: 0;
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    background-color: rgb(228, 228, 228);
+    max-width: 75%;
+    /* margin-left: 50px; */
+    max-height: 50%;
+  }
+  .title {
+    font-size: 45px;
+    text-align: center;
+    padding: 10px 10px 0 10px;
+    margin-top: 20px;
+  }
+  .subtitle {
+    margin: 0;
+    font-size: 16px;
+  }
+}
+/* @media only screen and (max-width: 1024px) {
+  .container {
+    background-color: rgb(228, 228, 228);
+    max-width: 75%;
+    margin-left: 120px;
+    top: 80px;
+  }
+  .title {
+    font-size: 70px;
+    color: black;
+    font-weight: 600;
+    padding: 10px 10px 0 10px;
+    margin-top: 300px;
+    line-height: 1.2;
+  }
+  .subtitle {
+    font-family: 'Petit Formal Script', cursive, 'Gill Sans', 'Gill Sans MT',
+      Calibri, 'Trebuchet MS', sans-serif;
+    padding: 0 10px 10px 10px;
+    line-height: 1.5;
+    font-size: 1.6em;
+  }
+} */
 </style>
