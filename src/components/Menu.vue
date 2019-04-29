@@ -32,28 +32,28 @@
               <router-link to="/beers/abv/9/15">9 - 15%</router-link>
               <router-link to="/beers/abv/15/35">15 - 35%</router-link>
               <router-link to="/beers/abv/35/60">
-                <a class="navbar-item has-text-weight-bold is-size-6" value="16">> 35%</a>
+                <a class="navbar-item" value="16">> 35%</a>
               </router-link>
             </div>
             <div class="ibu">
               <div class="menu-item-title">IBU</div>
               <router-link to="/beers/ibu/0/20">
-                <a class="navbar-item has-text-weight-bold is-size-6" value="0-20">0 - 20</a>
+                <a class="navbar-item" value="0-20">0 - 20</a>
               </router-link>
               <router-link to="/beers/ibu/20/40">
-                <a class="navbar-item has-text-weight-bold is-size-6" value="20">20 - 40</a>
+                <a class="navbar-item" value="20">20 - 40</a>
               </router-link>
               <router-link to="/beers/ibu/40/60">
-                <a class="navbar-item has-text-weight-bold is-size-6" value="40">40 - 60</a>
+                <a class="navbar-item" value="40">40 - 60</a>
               </router-link>
               <router-link to="/beers/ibu/60/80">
-                <a class="navbar-item has-text-weight-bold is-size-6" value="60">60 - 80</a>
+                <a class="navbar-item" value="60">60 - 80</a>
               </router-link>
               <router-link to="/beers/ibu/80/100">
-                <a class="navbar-item has-text-weight-bold is-size-6" value="80">80 - 100</a>
+                <a class="navbar-item" value="80">80 - 100</a>
               </router-link>
               <router-link to="/beers/ibu/100/300">
-                <a class="navbar-item has-text-weight-bold is-size-6" value="100">> 100</a>
+                <a class="navbar-item" value="100">> 100</a>
               </router-link>
             </div>
           </div>
@@ -62,7 +62,7 @@
       <div class="menu-items--right">
         <div class="menu-item">
           <router-link class="navbar-item" to="/beers/random">
-            <div @click="reloadPage">Random</div>
+            <div @click="randomPick">Random</div>
           </router-link>
         </div>
       </div>
@@ -85,7 +85,7 @@ export default {
     toggleDropdown: function() {
       this.active = !this.active
     },
-    reloadPage() {
+    randomPick() {
       window.location.href = '/beers/random'
     }
   }

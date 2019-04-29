@@ -5,23 +5,14 @@
       <h2 class="subtitle">Discover the recipes of your favorite beers!</h2>
     </div>
   </section>
-  <!-- <div class="banner"> -->
-  <!-- <img alt="Brewdog" src="../assets/Brewdog_masthead_1.png"> -->
-  <!-- <p>{{ msg }}</p> -->
-  <!-- <h3>{{ msg }}</h3> -->
-  <!-- </div> -->
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
-@Component
-export default class Banner extends Vue {
-  @Prop() private msg!: string
-}
+export default {}
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .container {
   background-color: rgb(228, 228, 228);
@@ -46,14 +37,7 @@ h3 {
   font-size: 12px;
 }
 .hero::before {
-  /* background-image: url('../assets/Brewdog_masthead_1.png'); */
-  background: 
-  /* linear-gradient(
-      to right,
-      rgba(238, 234, 234, 0.45),
-      rgba(17, 17, 17, 0.616)
-    ), */ url('../assets/brewdog.jpg');
-
+  background: url('../assets/brewdog.jpg');
   background-size: cover;
   content: '';
   display: block;
@@ -75,7 +59,6 @@ img {
     margin-top: 40px;
     background-color: rgb(228, 228, 228);
     max-width: 75%;
-    /* margin-left: 50px; */
     max-height: 50%;
   }
   .title {
@@ -96,7 +79,6 @@ img {
     margin-top: 40px;
     background-color: rgb(228, 228, 228);
     max-width: 75%;
-    /* margin-left: 50px; */
     max-height: 50%;
   }
   .title {
@@ -110,27 +92,4 @@ img {
     font-size: 16px;
   }
 }
-/* @media only screen and (max-width: 1024px) {
-  .container {
-    background-color: rgb(228, 228, 228);
-    max-width: 75%;
-    margin-left: 120px;
-    top: 80px;
-  }
-  .title {
-    font-size: 70px;
-    color: black;
-    font-weight: 600;
-    padding: 10px 10px 0 10px;
-    margin-top: 300px;
-    line-height: 1.2;
-  }
-  .subtitle {
-    font-family: 'Petit Formal Script', cursive, 'Gill Sans', 'Gill Sans MT',
-      Calibri, 'Trebuchet MS', sans-serif;
-    padding: 0 10px 10px 10px;
-    line-height: 1.5;
-    font-size: 1.6em;
-  }
-} */
 </style>
