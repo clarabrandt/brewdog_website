@@ -27,14 +27,18 @@
       <div class="s">
         <div class="cd-fixed-bg cd-fixed-bg--4"></div>
         <div class="text">YEST</div>
-        <div class="text-subtitle">What transforms our cereal into beer!</div>
+        <div class="text-subtitle">What transforms the cereal into beer!</div>
       </div>
       <div class="s">
         <div class="cd-fixed-bg cd-fixed-bg--5"></div>
         <div class="text">AND THE PERFECT BREWDOG RECIPE!</div>
+        <div class="text-subtitle">Choose the perfect one for you!</div>
       </div>
       <div class="cd-fixed-bg cd-fixed-bg--6">
-        <h1>HOPS</h1>
+        <div class="text-click" to="/beers">
+          <div @click="goToBeersList">Click here to find out more!</div>
+        </div>
+        </div>
       </div>
     </div>
   </div>
@@ -44,12 +48,19 @@
 import { Component, Vue } from 'vue-property-decorator'
 import Banner from '@/components/Banner.vue' // @ is an alias to /src
 
-@Component({
-  components: {
-    Banner
+export default {
+  name: 'Home',
+   components: {
+      Banner
+  },
+
+  methods: {
+    goToBeersList(){
+      window.location.href = '/beers'
+    }
   }
-})
-export default class Home extends Vue {}
+}
+
 </script>
 
 <style>
@@ -118,8 +129,20 @@ export default class Home extends Vue {}
   background-image: url('../assets/beeryeast.jpg');
   max-width: 100%;
 }
+.cd-fixed-bg.cd-fixed-bg--6 {
+  background-image: url('../assets/diydogbooks_.jpg');
+  max-width: 100%;
+}
 
 .cd-scrolling-bg {
   min-height: 100%;
+}
+.text-click {
+  color: black;
+  font-size: 26px;
+  padding-top: 150px;
+  font-weight: 600;
+  font-family: 'Pathway Gothic One';
+  cursor: pointer;
 }
 </style>
