@@ -16,8 +16,13 @@
     </div>
     <div v-else>Acabou!</div>
     <div class="pagination">
-      <a href="#" @click.prevent="goPrevious">&laquo; Previous</a>
-      <a href="#" @click.prevent="goNext">Next &raquo;</a>
+      <a
+        v-show="this.page > 1"
+        class="previous"
+        href="#"
+        @click.prevent="goPrevious"
+      >&laquo; Previous</a>
+      <a v-show="this.allBeers.length === 24" href="#" @click.prevent="goNext">Next &raquo;</a>
     </div>
   </div>
 </template>
@@ -50,6 +55,7 @@ export default {
       }
       if (this.page === 1) {
         this.page
+
         this.changePage()
       }
     },
@@ -66,7 +72,8 @@ export default {
   },
   data: function() {
     return {
-      page: 1
+      page: 1,
+      isActive: false
     }
   },
   computed: {
@@ -112,11 +119,8 @@ export default {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    min-height: 100vh;
     flex-direction: row;
-    height: 100%;
     padding: 0 50px;
-    // overflow-x: hidden;
     justify-content: center;
     .two {
       border: 1px solid lightgrey;
@@ -173,6 +177,9 @@ export default {
 
 .pagination a:hover:not(.active) {
   background-color: #ddd;
+}
+.pagination a.next {
+  display: none;
 }
 </style>
 
