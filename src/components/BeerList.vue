@@ -64,10 +64,13 @@ export default {
       }
     }
   },
-
+  data: function() {
+    return {
+      page: 1
+    }
+  },
   computed: {
-    ...mapGetters(['allBeers']),
-    ...mapState(['page'])
+    ...mapGetters(['allBeers'])
   },
 
   created() {
@@ -75,12 +78,14 @@ export default {
       grad: this.grad,
       min: this.min,
       max: this.max,
-      id: this.id
+      id: this.id,
+      page: this.page
     })
   },
   watch: {
     // call again the method if the route changes
     $route: function(val) {
+      this.page = 1
       this.fetchBeers({
         grad: this.grad,
         min: this.min,
