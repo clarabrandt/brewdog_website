@@ -33,31 +33,49 @@ export interface Beer {
 
 const state = {
   beerList: [],
-  selectedBeer: {}
+  selectedBeer: {},
+  getIngredients: [{}],
+  page: 1
 }
 
 const getters = {
   allBeers: (state: IState) => state.beerList,
-  selectedBeer: (state: IState) => state.selectedBeer
+  selectedBeer: (state: IState) => state.selectedBeer,
+  getIngredients: (state: IState, id: string) => {
+    const ingredients: any = state.selectedBeer.ingredients
+    for (let key in ingredients) {
+      return ingredients[key]
+    }
+  }
 }
 
 const getUrl = (payload: any) => {
-  const base_url = 'https://api.punkapi.com/v2/beers'
+  const base_url = 'https://api.punkapi.com/v2/beers?per_page=24'
   let filters = ''
   if (payload.grad === 'abv') {
-    filters += `abv_gt=${payload.min}&abv_lt=${payload.max}`
+    filters += `&abv_gt=${payload.min}&abv_lt=${payload.max}`
   }
   if (payload.grad === 'ibu') {
-    filters += `ibu_gt=${payload.min}&ibu_lt=${payload.max}`
+    filters += `&ibu_gt=${payload.min}&ibu_lt=${payload.max}`
   }
-  return `${base_url}?${filters}`
+  if (payload.page) {
+    filters += `&page=${payload.page}`
+  }
+  return `${base_url}${filters}`
+}
+
+export interface Payload {
+  grad: string
+  min: number
+  max: number
+  id: string
+  page: number
 }
 
 const actions = {
-  async fetchBeers({ commit }: any, payload: object) {
+  async fetchBeers({ commit }: any, payload: Payload) {
     const response = await fetch(getUrl(payload))
     const data = await response.json()
-
     commit('setBeers', data)
   },
   async fetchRandom({ commit }: any) {

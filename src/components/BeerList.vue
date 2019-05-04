@@ -1,31 +1,23 @@
 <template>
-  <div class="one" v-if="this.grad">
-    <div class="two" v-for="beer in allBeers" :key="beer.id" @click="goToBeer">
-      <div class="beer-image">
-        <img :src="beer.image_url">
-      </div>
-      <div class="beer">
-        <div class="beer-content">
-          <div class="beer-content--name">{{beer.name}}</div>
-          <div class="beer-content--abv">abv: {{ beer.abv }}%</div>
-          <div class="beer-content--ibu">ibu: {{ beer.ibu }}</div>
+  <div class="wrap">
+    <div class="one" v-if="allBeers.length !== 0">
+      <div class="two" v-for="beer in allBeers" :key="beer.id" @click="() => goToBeer(beer.id)">
+        <div class="beer-image">
+          <img :src="beer.image_url">
+        </div>
+        <div class="beer">
+          <div class="beer-content">
+            <div class="beer-content--name">{{beer.name}}</div>
+            <div class="beer-content--abv">abv: {{ beer.abv }}%</div>
+            <div class="beer-content--ibu">ibu: {{ beer.ibu }}</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="one" v-else>
-    <div class="two" v-for="beer in allBeers" :key="beer.id" @click="goToBeer">
-      <div class="beer-image">
-        <img :src="beer.image_url">
-      </div>
-      <div class="beer">
-        <div class="beer-content">
-          <div class="beer-content--name">{{ beer.name }}</div>
-          <div class="beer-content--abv">abv: {{ beer.abv }}%</div>
-          <div class="beer-content--ibu">ibu: {{ beer.ibu }}</div>
-        </div>
-      </div>
+    <div v-else>Acabou!</div>
+    <div class="pagination">
+      <a href="#" @click.prevent="goPrevious">&laquo; Previous</a>
+      <a href="#" @click.prevent="goNext">Next &raquo;</a>
     </div>
   </div>
 </template>
@@ -34,21 +26,48 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import { mapGetters, mapActions, mapState } from 'vuex'
 
-// @Component
-// export default class BeerList extends Vue {
-//   @Prop() private msg!: string
-// }
 export default {
   name: 'BeerList',
   props: ['grad', 'min', 'max', 'id'],
   methods: {
     ...mapActions(['fetchBeers']),
-    goToBeer() {}
+    goToBeer(id: any) {
+      this.$router.push({ path: `/beers/${id}` })
+    },
+    changePage() {
+      this.fetchBeers({
+        grad: this.grad,
+        min: this.min,
+        max: this.max,
+        id: this.id,
+        page: this.page
+      })
+    },
+    goPrevious: function(e: Event) {
+      if (this.page > 1) {
+        this.page = this.page - 1
+        this.changePage()
+      }
+      if (this.page === 1) {
+        this.page
+        this.changePage()
+      }
+    },
+    goNext: function(e: Event) {
+      if (this.allBeers.length === 24) {
+        this.page = this.page + 1
+        this.changePage()
+      }
+      if (this.allBeers.length < 24) {
+        this.page
+        this.changePage()
+      }
+    }
   },
 
   computed: {
-    ...mapGetters(['allBeers'])
-    // ...mapState(['allBeers'])
+    ...mapGetters(['allBeers']),
+    ...mapState(['page'])
   },
 
   created() {
@@ -59,13 +78,16 @@ export default {
       id: this.id
     })
   },
-  mounted() {
-    this.fetchBeers({
-      grad: this.grad,
-      min: this.min,
-      max: this.max,
-      id: this.id
-    })
+  watch: {
+    // call again the method if the route changes
+    $route: function(val) {
+      this.fetchBeers({
+        grad: this.grad,
+        min: this.min,
+        max: this.max,
+        id: this.id
+      })
+    }
   }
 }
 </script>
@@ -78,35 +100,39 @@ export default {
     display: flex;
   }
 }
-.one {
+.wrap {
   display: flex;
-  flex-wrap: wrap;
-  min-height: 100vh;
-  flex-direction: row;
-  height: 100%;
-  width: 100%;
-  // margin: 0 50px;
-  padding: 0 50px;
-  overflow-x: hidden;
-  .two {
-    border: 1px solid lightgrey;
-    border-radius: 2%;
-    margin: 15px;
-    padding: 25px;
-    width: 200px;
-    height: 250px;
-    .beer {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
+  flex-direction: column;
+  .one {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    flex-direction: row;
+    height: 100%;
+    padding: 0 50px;
+    // overflow-x: hidden;
+    justify-content: center;
+    .two {
+      border: 1px solid lightgrey;
+      border-radius: 2%;
+      margin: 15px 20px;
+      padding: 25px;
+      width: 200px;
+      height: 260px;
 
-      // padding-left: 10px;
+      .beer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
     }
   }
 }
 .beer-image {
   margin: 10px;
   border-bottom: 1px solid black;
+  cursor: pointer;
   img {
     padding-bottom: 5px;
     height: 120px;
@@ -118,11 +144,30 @@ export default {
     padding: 5px 0;
     font-weight: 500;
     font-size: 18px;
+    cursor: pointer;
   }
   // .beer-content--abv,
   // .beer-content--ibu {
   //   text-align: left;
   // }
+}
+.pagination {
+  margin: 20px;
+}
+.pagination a {
+  color: black;
+  padding: 16px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.pagination a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
 }
 </style>
 

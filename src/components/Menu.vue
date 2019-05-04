@@ -38,7 +38,7 @@
             <div class="ibu">
               <div class="menu-item-title">IBU</div>
               <router-link to="/beers/ibu/0/20">
-                <a class="navbar-item" value="0-20">0 - 20</a>
+                <a class="navbar-item" value="0">0 - 20</a>
               </router-link>
               <router-link to="/beers/ibu/20/40">
                 <a class="navbar-item" value="20">20 - 40</a>
@@ -62,7 +62,8 @@
       <div class="menu-items--right">
         <div class="menu-item">
           <router-link class="navbar-item" to="/beers/random">
-            <div @click="randomPick">Random</div>
+            <div>Choose at</div>
+            <div @click="randomPick" class="random">Random</div>
           </router-link>
         </div>
       </div>
@@ -97,6 +98,13 @@ export default {
   position: fixed;
   top: 0;
   width: 100%;
+  .navbar-item {
+    display: flex;
+    .random {
+      padding: 0 10px;
+      text-decoration: underline;
+    }
+  }
 }
 
 .menu-items {

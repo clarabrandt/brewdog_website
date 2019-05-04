@@ -15,15 +15,16 @@
           <div class="beer-basics--title">Basics</div>
           <div class="beer-basics--items">
             <div class="beer-basics-1">
-              <div
+              <!-- <div
                 class="beer-characteristic"
               >Volume: {{ selectedBeer.volume.value }} {{ selectedBeer.volume.unit }}</div>
               <div
                 class="beer-characteristic"
-              >Boil Volume: {{ selectedBeer.boil_volume.value }} {{ selectedBeer.boil_volume.unit }}</div>
+              >Boil Volume: {{ selectedBeer.boil_volume.value }} {{ selectedBeer.boil_volume.unit }}</div>-->
             </div>
             <div class="beer-basics-2">
               <div class="beer-characteristic top">ABV: {{ selectedBeer.abv }}%</div>
+              <div class="beer-characteristic top">ID: {{ selectedBeer.id }}</div>
               <div class="beer-characteristic">IBU: {{ selectedBeer.ibu }}</div>
               <div class="beer-characteristic">Target FG: {{ selectedBeer.target_fg }}</div>
               <div class="beer-characteristic">Target FG: {{ selectedBeer.target_og }}</div>
@@ -41,7 +42,7 @@
             <div class="beer-basics--title">Method/Timing</div>
             <div class="beer-characteristic" v-for="(method) in selectedBeer.method">
               <!-- <div>{{method}}</div> -->
-              <div v-if="typeof(method) === 'object'">
+              <!-- <div v-if="typeof(method) === 'object'">
                 <div class="beer-characteristic" v-for="(key) in selectedBeer.method[key]">{{key}}</div>
                 <div class="beer-characteristic" v-for="(amount) in selectedBeer.method[key]">
                   <div
@@ -49,29 +50,26 @@
                     v-for="(step) in selectedBeer.method[key][amount]"
                   >oi</div>
                 </div>item
-              </div>
-              <div v-else>{{method}}</div>
+              </div>-->
+              <!-- <div v-else>{{method}}</div> -->
             </div>
           </div>
           <div class="beer-methods--fermentation">
             <div class="beer-basics--title">Fermentation</div>
-            <div class="beer-characteristic" v-for="(method) in selectedBeer.method">{{ method }}</div>
+            <!-- <div class="beer-characteristic" v-for="(method) in selectedBeer.method">{{ method }}</div> -->
           </div>
         </div>
         <div class="beer-basics--title">Ingredients</div>
-        <div class="beer-characteristic" v-for="(ingredient) in selectedBeer.ingredients">
-          <!-- <div>{{key}}</div> -->
-          <div v-if="typeof(ingredient) !== 'string'">
-            <div
-              class="beer-characteristic"
-              v-for="(key) of selectedBeer.ingredients[key]"
-            >{{key.name}}</div>
-            <!-- <div
+        <div class="beer-characteristic" v-if="getIngredients">
+          <div>{{getIngredients}}</div>
+          <!-- <div class="beer-characteristic" v-for="(key) of getIngredients[key]">{{key.name}}</div>
+          <div v-if="typeof(key) !== 'string'">-->
+          <!-- <div
               class="beer-characteristic"
               v-for="(amount) in selectedBeer.ingredients[key]"
-            >{{amount}}</div>-->
-          </div>
-          <div v-else>Yest: {{ingredient}}</div>
+          >{{amount}}</div>-->
+          <!-- </div> -->
+          <!-- <div v-else>Yest: {{ingredient}}</div> -->
         </div>
 
         <!-- <div class="beer-ingredients" v-for="(ingredient, key, index) in selectedBeer.ingredients">
@@ -100,7 +98,7 @@ export default {
 
   computed: {
     ...mapState(['selectedBeer']),
-    ...mapGetters(['selectedBeer'])
+    ...mapGetters(['selectedBeer', 'getIngredients'])
   },
   created() {
     if (this.id === 'random') {
