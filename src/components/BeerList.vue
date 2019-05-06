@@ -2,9 +2,13 @@
   <div class="wrap">
     <div class="one" v-if="allBeers.length !== 0">
       <div class="two" v-for="beer in allBeers" :key="beer.id" @click="() => goToBeer(beer.id)">
-        <div class="beer-image">
+        <div class="beer-image" v-if="beer.image_url != null">
           <img :src="beer.image_url">
         </div>
+        <div class="beer-image" v-else>
+          <div>NO IMAGE AVAILABLE</div>
+        </div>
+
         <div class="beer">
           <div class="beer-content">
             <div class="beer-content--name">{{beer.name}}</div>
@@ -36,7 +40,7 @@ export default {
   props: ['grad', 'min', 'max', 'id'],
   methods: {
     ...mapActions(['fetchBeers']),
-    goToBeer(id: any) {
+    goToBeer(id: number) {
       this.$router.push({ path: `/beers/${id}` })
     },
     changePage() {
@@ -73,7 +77,10 @@ export default {
   data: function() {
     return {
       page: 1,
-      isActive: false
+      isActive: false,
+      image: [
+        'https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwj6-rDspofiAhUC3KQKHfA7Bi0QjRx6BAgBEAU&url=https%3A%2F%2Fwww.brewdog.com%2Fblog%2Fpost%2F10-reasons-to-grab-a-growler%2F&psig=AOvVaw1FfbKofIN3xGpSNf8kQ1yQ&ust=1557245802963189'
+      ]
     }
   },
   computed: {
@@ -91,7 +98,7 @@ export default {
   },
   watch: {
     // call again the method if the route changes
-    $route: function(val) {
+    $route: function(val: Object) {
       this.page = 1
       this.fetchBeers({
         grad: this.grad,

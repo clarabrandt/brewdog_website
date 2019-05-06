@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <div class="footer-content">
-      <div>Brewdog Recipes IPA.</div>
+      <div>Brewdog Recipes API website.</div>
       <div></div>
       <div>A website by Clara Brandt.</div>
     </div>

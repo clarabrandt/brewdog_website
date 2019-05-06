@@ -62,7 +62,6 @@
       <div class="menu-items--right">
         <div class="menu-item">
           <router-link class="navbar-item" to="/beers/random">
-            <div>Choose at</div>
             <div @click="randomPick" class="random">Random</div>
           </router-link>
         </div>
@@ -102,8 +101,13 @@ export default {
     display: flex;
     .random {
       padding: 0 10px;
+    }
+    .random:hover {
       text-decoration: underline;
     }
+  }
+  .menu-item:hover {
+    text-decoration: underline;
   }
 }
 

@@ -2,7 +2,7 @@
   <section class="hero">
     <div class="container">
       <h1 class="title">The Brewdog World</h1>
-      <h2 class="subtitle">Discover the recipes of your favorite beers!</h2>
+      <h2 class="subtitle">Find out more about your favorite beers!</h2>
     </div>
   </section>
 </template>
@@ -24,7 +24,7 @@ export default {}
   color: black;
   font-weight: 600;
   padding: 10px 10px 0 10px;
-  margin-top: 120px;
+  margin-top: 140px;
   line-height: 1.2;
 }
 .subtitle {

@@ -5,7 +5,7 @@
     <div class="more-content">
       <div class="cd-scrolling-bg cd-scrolling-bg--color-0">
         <div class="ingredient cd-scrolling-bg__content">
-          <div class="text-title">What do you need to make the perfect beer?</div>
+          <div class="text-title">WHAT MAKES A PERFECT BEER?</div>
         </div>
       </div>
       <div class="text">PURE WATER</div>
@@ -72,19 +72,16 @@ export default {
 
 .ingredient {
   background-color: bisque;
+  
 }
-
 .text-title {
   padding: 150px 0;
   font-size: 3rem;
   font-weight: 600;
-  height: 200px;
-  margin-bottom: 50px;
-  text-align: center;
+  height: 100px;
 }
 .columns {
   height: 300px;
-  /* width: 400px; */
 }
 .column {
   width: 50%;
@@ -101,7 +98,7 @@ export default {
   background-color: white;
   font-size: 3rem;
   font-weight: 600;
-  /* color: white; */
+  margin-top: 20px;
 }
 .text-subtitle {
   font-size: 2rem;
@@ -144,5 +141,27 @@ export default {
   font-weight: 600;
   font-family: 'Pathway Gothic One';
   cursor: pointer;
+}
+@media only screen and (max-width: 620px) {
+  .text-title {
+    font-size: 40px;
+  }
+  .text {
+   font-size: 40px;
+  }
+  .text-subtitle {
+    font-size: 24px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .text-title {
+    font-size: 40px;
+  }
+  .text {
+  font-size: 40px;
+  }
+  .text-subtitle {
+    font-size: 24px;
+  }
 }
 </style>

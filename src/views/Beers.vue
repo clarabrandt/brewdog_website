@@ -2,7 +2,7 @@
   <div class="beers section">
     <!-- <img alt="Brewdog logo" src="../assets/brewdog-logo.png"> -->
 
-    <h3>- Choose your favorite beer to see its recipe {{ $route.params.grad }} {{ $route.params.min }} - {{ $route.params.max }}</h3>
+    <h2 class="beers-paragraph">Choose your favorite beer to learn more about it!</h2>
     <div class="container is-fluid">
       <BeerList
         v-bind:grad="$route.params.grad"
@@ -31,9 +31,17 @@ export default class Beers extends Vue {}
 .beers.section {
   height: 100%;
 }
+.beers-paragraph {
+  font-size: 30px;
+  padding: 20px;
+  color: #2d0242;
+}
 p {
   margin-top: 100px;
   font-size: 40px;
   font-weight: 600;
+}
+.container {
+  min-height: calc(100vh - 204px);
 }
 </style>
