@@ -1,10 +1,11 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
 import Home from './views/Home.vue'
+import SiteMap from './views/SiteMap.vue'
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
-export default new Router({
+export const router: VueRouter = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -17,6 +18,11 @@ export default new Router({
       path: '/home',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/sitemap',
+      name: 'sitemap',
+      component: SiteMap
     },
     {
       path: '/beers',
@@ -42,3 +48,4 @@ export default new Router({
     }
   ]
 })
+
