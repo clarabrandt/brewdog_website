@@ -31,30 +31,16 @@
               <router-link to="/beers/abv/6/9">6 - 9%</router-link>
               <router-link to="/beers/abv/9/15">9 - 15%</router-link>
               <router-link to="/beers/abv/15/35">15 - 35%</router-link>
-              <router-link to="/beers/abv/35/60">
-                <a class="navbar-item" value="16">> 35%</a>
-              </router-link>
+              <router-link to="/beers/abv/35/60">> 35%</router-link>
             </div>
             <div class="ibu">
               <div class="menu-item-title">IBU</div>
-              <router-link to="/beers/ibu/0/20">
-                <a class="navbar-item" value="0">0 - 20</a>
-              </router-link>
-              <router-link to="/beers/ibu/20/40">
-                <a class="navbar-item" value="20">20 - 40</a>
-              </router-link>
-              <router-link to="/beers/ibu/40/60">
-                <a class="navbar-item" value="40">40 - 60</a>
-              </router-link>
-              <router-link to="/beers/ibu/60/80">
-                <a class="navbar-item" value="60">60 - 80</a>
-              </router-link>
-              <router-link to="/beers/ibu/80/100">
-                <a class="navbar-item" value="80">80 - 100</a>
-              </router-link>
-              <router-link to="/beers/ibu/100/300">
-                <a class="navbar-item" value="100">> 100</a>
-              </router-link>
+              <router-link to="/beers/ibu/0/20">0 - 20</router-link>
+              <router-link to="/beers/ibu/20/40">20 - 40</router-link>
+              <router-link to="/beers/ibu/40/60">40 - 60</router-link>
+              <router-link to="/beers/ibu/60/80">60 - 80</router-link>
+              <router-link to="/beers/ibu/80/100">80 - 100</router-link>
+              <router-link to="/beers/ibu/100/300">> 100</router-link>
             </div>
           </div>
         </div>

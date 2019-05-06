@@ -13,7 +13,5 @@ import BeerDetails from '@/components/BeerDetails.vue' // @ is an alias to /src
     BeerDetails
   }
 })
-export default class OneBeer extends Vue {
-  @Prop() private msg!: string
-}
+export default class OneBeer extends Vue {}
 </script>
