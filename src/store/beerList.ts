@@ -40,13 +40,7 @@ const state = {
 
 const getters = {
   allBeers: (state: IState) => state.beerList,
-  selectedBeer: (state: IState) => state.selectedBeer,
-  getIngredients: (state: IState, id: string) => {
-    const ingredients: any = state.selectedBeer.ingredients
-    for (let key in ingredients) {
-      return ingredients[key]
-    }
-  }
+  selectedBeer: (state: IState) => state.selectedBeer
 }
 
 const getUrl = (payload: any) => {
