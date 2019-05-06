@@ -5,6 +5,7 @@
       <div></div>
       <div>A website by Clara Brandt.</div>
     </div>
+    <router-link to="/sitemap"class='footer-sitemap'>Site map</router-link>
   </footer>
 </template>
 
@@ -19,9 +20,15 @@ export default {}
 <style lang="scss" scoped>
 .footer {
   background-color: lightgrey;
+  display: flex;
+  justify-content: space-between;
   .footer-content {
     text-align: left;
     padding: 10px;
+  }
+  .footer-sitemap{
+    text-align: right;
+    padding: 10px 30px;
   }
 }
 </style>
