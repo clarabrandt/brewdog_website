@@ -119,7 +119,6 @@ export default {
 .menu-items--left,
 .menu-items--right {
   display: flex;
-  /* flex-direction: column; */
 }
 .menu-item {
   padding: 10px;

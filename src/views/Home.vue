@@ -46,7 +46,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Banner from '@/components/Banner.vue' // @ is an alias to /src
+import Banner from '@/components/Banner.vue' 
 
 export default {
   name: 'Home',

@@ -162,10 +162,6 @@ export default {
     font-size: 18px;
     cursor: pointer;
   }
-  // .beer-content--abv,
-  // .beer-content--ibu {
-  //   text-align: left;
-  // }
 }
 .pagination {
   margin: 20px;
