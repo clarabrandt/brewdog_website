@@ -1,29 +1,24 @@
-# ddt-project
+# Brewdog website
+This websites gives you the details of all of the Brewdog beers. The project was build using HTML, JavaScript, CSS and the framework VueJS + TypeScript.
+
+## Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development purposes. 
+
+## Requirements
+For development, you will only need Node.js installed on your environement. 
 
 ## Project setup
-```
-yarn install
-```
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+## Git clone repository
+$ git clone https://github.com/clarabrandt/brewdog_website.git
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+## Got to the directory
+$ cd brewdog_website
 
-### Run your tests
-```
-yarn run test
-```
+## install the dependencies of the project
+$ yarn install
 
-### Lints and fixes files
-```
-yarn run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Start
+$ yarn serve
+
