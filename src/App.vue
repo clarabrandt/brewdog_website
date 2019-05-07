@@ -1,16 +1,36 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <Menu/>
+    <router-view/>
+    <Footer/>
   </div>
 </template>
 
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import Menu from '@/components/Menu.vue' // @ is an alias to /src
+import Footer from '@/components/Footer.vue' // @ is an alias to /src
+import { State } from 'vuex-class'
+import { Beer } from './types'
+import BeerList from './components/BeerList.vue'
+
+@Component({
+  components: {
+    Menu,
+    Footer
+  }
+})
+export default class App extends Vue {
+  @State beerList!: Beer[]
+}
+</script>
+
+
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  height: 100%;
+  width: 100%;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
