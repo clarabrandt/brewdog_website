@@ -5,7 +5,7 @@ This websites gives you the details of all of the Brewdog beers. The project was
 These instructions will get you a copy of the project up and running on your local machine for development purposes. 
 
 ## Requirements
-For development, you will only need Node.js installed on your environement. 
+To run the project you will need Node.js installed on your environment. 
 
 ## Project setup
 
