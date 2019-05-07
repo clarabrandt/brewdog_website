@@ -44,7 +44,7 @@ export default {
       this.$router.push({ path: `/beers/${id}` })
     },
     changePage() {
-      this.fetchBeers({
+      this.fetchBeers(Object{
         grad: this.grad,
         min: this.min,
         max: this.max,
@@ -78,9 +78,6 @@ export default {
     return {
       page: 1,
       isActive: false,
-      image: [
-        'https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwj6-rDspofiAhUC3KQKHfA7Bi0QjRx6BAgBEAU&url=https%3A%2F%2Fwww.brewdog.com%2Fblog%2Fpost%2F10-reasons-to-grab-a-growler%2F&psig=AOvVaw1FfbKofIN3xGpSNf8kQ1yQ&ust=1557245802963189'
-      ]
     }
   },
   computed: {
@@ -88,7 +85,7 @@ export default {
   },
 
   created() {
-    this.fetchBeers({
+    this.fetchBeers(Object{
       grad: this.grad,
       min: this.min,
       max: this.max,
@@ -98,9 +95,9 @@ export default {
   },
   watch: {
     // call again the method if the route changes
-    $route: function(val: Object) {
+    $route: function(val: any, val: Object) {
       this.page = 1
-      this.fetchBeers({
+      this.fetchBeers(Object{
         grad: this.grad,
         min: this.min,
         max: this.max,

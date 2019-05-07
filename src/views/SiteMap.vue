@@ -19,6 +19,7 @@
       <div class="urls_beers" v-for="index in 325" :key="index">
        <a :href="'/beers/' + index">http://localhost:8080/beers/{{index}}</a>
       </div>
+      <a :href="'/sitemap'">http://localhost:8080/sitemap</a>
     </div>
   </div>
 </template>

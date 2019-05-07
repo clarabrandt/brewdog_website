@@ -68,7 +68,7 @@ export default {
     }
   },
   methods: {
-    toggleDropdown: function() {
+    toggleDropdown: function(val: any) {
       this.active = !this.active
     },
     randomPick() {
