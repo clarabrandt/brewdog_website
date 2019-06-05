@@ -1,5 +1,5 @@
 # Brewdog website
-This websites gives you the details of all of the Brewdog beers. The project was build using HTML, JavaScript, CSS and the framework VueJS + TypeScript.
+This websites gives you the details of all of the Brewdog beers. The project was built using HTML, JavaScript, CSS and the framework VueJS + TypeScript.
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development purposes. 
